@@ -1,0 +1,321 @@
+/*imp! CSS RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*imp! CSS VARIABLES */
+
+:root{
+  --common-pink-clr: #F71568;
+  --font-family-poppins: Poppins;
+  --font-family-lato: Lato;
+  --common-transition: cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+}
+
+/*imp! BODY CSS */
+
+body {
+  font-family: var(--font-family-poppins);
+  background: #950eef;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translateY(-50%);
+}
+
+/*imp! CONTAINER CSS */
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.container .box {
+  width: 0%;
+  height: 620px;
+  background: #fff;
+  position: absolute;
+  animation: openBox 1s var(--common-transition);
+}
+
+.container .box .product-img {
+  width: 600px;
+  position: absolute;
+  left: -150px;
+  top: 50px;
+  opacity: 0;
+  animation: fadeImg 1s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+.container .box .product-video {
+  width: 320px;
+  height: 100px;
+  position: absolute;
+  left: 50px;
+  bottom: 50px;
+}
+
+.container .box .product-video .video {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0px;
+  opacity: 0;
+  animation: upVideo 1s var(--common-transition);
+  animation-delay: 1.2s;
+}
+
+.container .box .product-video .video i {
+  padding: 20px 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: var(--common-pink-clr);
+  border: 2px solid var(--common-pink-clr);;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  transition: ease-in-out 220ms;
+  cursor: pointer;
+}
+
+.container .box .product-video .video i:hover {
+  background: var(--common-pink-clr);
+  color: #fff;
+  box-shadow: 0 0 26px var(--common-pink-clr);
+}
+
+.container .box .product-video .video p {
+  margin-left: 25px;
+  font-family: var(--common-font-family);
+  text-transform: uppercase;
+}
+
+.container .box .product-disc {
+  width: 0px;
+  height: 430px;
+  background: #ffd036;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0px;
+  top: 50px;
+  animation: showDisc 1s var(--common-transition);
+}
+
+.container .box .product-disc .product-disc-content {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  animation: fadeContent 1s ease-in-out forwards;
+  animation-delay: 1s;
+  opacity: 0;
+}
+
+.container .box .product-disc .product-disc-content .disc-content-about {
+  width: 100%;
+}
+
+.container .box .product-disc .product-disc-content .disc-content-about h1 {
+  font-size: 32px;
+  font-family: var(--font-family-poppins);
+}
+
+.container .box .product-disc .product-disc-content .disc-content-about span {
+  font-family: var(--font-family-lato);
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  opacity: 0.5;
+}
+
+.container .box .product-disc .product-disc-content .disc-content-about p {
+  margin-top: 35px;
+  font-size: 14px;
+  font-family: var(--font-family-poppins);
+}
+
+.container .box .product-disc .product-disc-content .product-view-more {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.container .box .product-disc .product-disc-content .product-view-more:hover .view-more-block {
+  width: 220px;
+  height: 35px;
+}
+
+.container .box .product-disc .product-disc-content .product-view-more .view-more-block {
+  width: 10px;
+  height: 15px;
+  position: absolute;
+  background: #f6f6f6;
+  z-index: 1;
+  transition: cubic-bezier(0.68, -0.55, 0.27, 1.55) 320ms;
+}
+
+.container .box .product-disc .product-disc-content .product-view-more p {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: flex;
+  z-index: 2;
+  margin-left: 15px;
+  font-family: var(--font-family-poppins);
+}
+
+.container .box .product-buttons {
+  width: 500px;
+  height: 100px;
+  bottom: 50px;
+  right: -50px;
+  position: absolute;
+}
+
+.container .box .product-buttons .btn {
+  width: 240px;
+  height: 70%;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: var(--font-family-poppins);
+  -webkit-transition: ease-in-out 220ms;
+  -moz-transition: ease-in-out 220ms;
+  -ms-transition: ease-in-out 220ms;
+  -o-transition: ease-in-out 220ms;
+  transition: ease-in-out 220ms;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.container .box .product-buttons .wishlist {
+  border: 2px solid var(--common-pink-clr);
+  background: transparent;
+  color: var(--common-pink-clr);
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  opacity: 0;
+  animation: fadeWish 1s var(--common-transition);
+  animation-delay: 1s;
+}
+
+.container .box .product-buttons .wishlist:hover {
+  background: var(--common-pink-clr);
+  color: #FFF;
+  box-shadow: 0 0 26px var(--common-pink-clr);
+}
+
+.container .box .product-buttons .buy {
+  border: none;
+  background: var(--common-pink-clr);
+  color: #FFF;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  animation: fadeBuy 1s var(--common-transition);
+  animation-delay: 1s;
+}
+
+.container .box .product-buttons .buy:hover {
+  box-shadow: 0 0 26px var(--common-pink-clr);
+}
+
+/*imp! ANIMATION CSS */
+
+@keyframes openBox {
+  0% {
+    width: 0px;
+    left: 15%;
+  }
+
+  100% {
+    width: 900px;
+    left: 15%;
+  }
+}
+
+@keyframes fadeImg {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes upVideo {
+  0% {
+    opacity: 0;
+    bottom: -20px;
+  }
+
+  100% {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+
+@keyframes showDisc {
+  0% {
+    width: 0px;
+    left: 450px;
+  }
+
+  100% {
+    width: 500px;
+    left: 450px;
+  }
+}
+
+@keyframes fadeContent {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeWish {
+  0% {
+    opacity: 0;
+    bottom: -25px;
+  }
+
+  100% {
+    opacity: 1;
+    bottom: 0;
+  }
+}
+
+@keyframes fadeBuy {
+  0% {
+    opacity: 0;
+    bottom: -25px;
+  }
+
+  100% {
+    opacity: 1;
+    bottom: 0;
+  }
+}
