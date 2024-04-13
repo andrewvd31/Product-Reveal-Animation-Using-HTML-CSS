@@ -10,6 +10,9 @@
 
 :root{
   --common-pink-clr: #F71568;
+  --pure-white: #fff;
+  --purple: #950eef;
+  --yellow: #ffd036;
   --font-family-poppins: Poppins;
   --font-family-lato: Lato;
   --common-transition: cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
@@ -19,7 +22,7 @@
 
 body {
   font-family: var(--font-family-poppins);
-  background: #950eef;
+  background: var(--purple);
   position: absolute;
   top: 50%;
   left: 20%;
@@ -40,9 +43,21 @@ body {
 .container .box {
   width: 0;
   height: 620px;
-  background: #fff;
+  background: var(--pure-white);
   position: absolute;
   animation: openBox 1s var(--common-transition);
+}
+
+@keyframes openBox {
+  0% {
+    width: 0px;
+    left: 15%;
+  }
+
+  100% {
+    width: 900px;
+    left: 15%;
+  }
 }
 
 .container .box .product-img {
@@ -53,6 +68,16 @@ body {
   opacity: 0;
   animation: fadeImg 1s ease-in-out forwards;
   animation-delay: 1s;
+}
+
+@keyframes fadeImg {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .container .box .product-video {
@@ -72,11 +97,20 @@ body {
   animation-delay: 1.2s;
 }
 
+@keyframes upVideo {
+  0% {
+    opacity: 0;
+    bottom: -20px;
+  }
+
+  100% {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+
 .container .box .product-video .video i {
   padding: 20px 22px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 20px;
   color: var(--common-pink-clr);
   border: 2px solid var(--common-pink-clr);
@@ -87,27 +121,38 @@ body {
 
 .container .box .product-video .video i:hover {
   background: var(--common-pink-clr);
-  color: #fff;
+  color: var(--pure-white);
   box-shadow: 0 0 26px var(--common-pink-clr);
 }
 
 .container .box .product-video .video p {
   margin-left: 25px;
-  font-family: var(--common-font-family);
   text-transform: uppercase;
 }
 
 .container .box .product-disc {
   width: 0;
   height: 430px;
-  background: #ffd036;
+  background: var(--yellow);
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  left: 0px;
+  left: 0;
   top: 50px;
   animation: showDisc 1s var(--common-transition);
+}
+
+@keyframes showDisc {
+  0% {
+    width: 0px;
+    left: 450px;
+  }
+
+  100% {
+    width: 500px;
+    left: 450px;
+  }
 }
 
 .container .box .product-disc .product-disc-content {
@@ -121,13 +166,18 @@ body {
   opacity: 0;
 }
 
-.container .box .product-disc .product-disc-content .disc-content-about {
-  width: 100%;
+@keyframes fadeContent {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .container .box .product-disc .product-disc-content .disc-content-about h1 {
   font-size: 32px;
-  font-family: var(--font-family-poppins);
 }
 
 .container .box .product-disc .product-disc-content .disc-content-about span {
@@ -141,7 +191,6 @@ body {
 .container .box .product-disc .product-disc-content .disc-content-about p {
   margin-top: 35px;
   font-size: 14px;
-  font-family: var(--font-family-poppins);
 }
 
 .container .box .product-disc .product-disc-content .product-view-more {
@@ -170,10 +219,8 @@ body {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  display: flex;
   z-index: 2;
   margin-left: 15px;
-  font-family: var(--font-family-poppins);
 }
 
 .container .box .product-buttons {
@@ -189,10 +236,10 @@ body {
   height: 70%;
   font-size: 16px;
   font-weight: bold;
-  font-family: var(--font-family-poppins);
   transition: ease-in-out 220ms;
   cursor: pointer;
   text-transform: uppercase;
+  font-family: inherit;
 }
 
 .container .box .product-buttons .wishlist {
@@ -200,113 +247,41 @@ body {
   background: transparent;
   color: var(--common-pink-clr);
   position: absolute;
-  bottom: -25px;
-  left: 0;
   opacity: 0;
-  animation: fadeWish 1s var(--common-transition);
+  animation: fadeBtn 1s var(--common-transition);
   animation-delay: 1s;
+}
+
+@keyframes fadeBtn {
+  0% {
+    opacity: 0;
+    bottom: -25px;
+  }
+
+  100% {
+    opacity: 1;
+    bottom: 0;
+  }
 }
 
 .container .box .product-buttons .wishlist:hover {
   background: var(--common-pink-clr);
-  color: #FFF;
+  color: #fff;
   box-shadow: 0 0 26px var(--common-pink-clr);
 }
 
 .container .box .product-buttons .buy {
   border: none;
   background: var(--common-pink-clr);
-  color: #FFF;
+  color: var(--pure-white);
   position: absolute;
   right: 0;
   bottom: 0;
   opacity: 0;
-  animation: fadeBuy 1s var(--common-transition);
+  animation: fadeBtn 1s var(--common-transition);
   animation-delay: 1s;
 }
 
 .container .box .product-buttons .buy:hover {
   box-shadow: 0 0 26px var(--common-pink-clr);
-}
-
-/*imp! ANIMATION CSS */
-
-@keyframes openBox {
-  0% {
-    width: 0px;
-    left: 15%;
-  }
-
-  100% {
-    width: 900px;
-    left: 15%;
-  }
-}
-
-@keyframes fadeImg {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes upVideo {
-  0% {
-    opacity: 0;
-    bottom: -20px;
-  }
-
-  100% {
-    opacity: 1;
-    bottom: 0px;
-  }
-}
-
-@keyframes showDisc {
-  0% {
-    width: 0px;
-    left: 450px;
-  }
-
-  100% {
-    width: 500px;
-    left: 450px;
-  }
-}
-
-@keyframes fadeContent {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeWish {
-  0% {
-    opacity: 0;
-    bottom: -25px;
-  }
-
-  100% {
-    opacity: 1;
-    bottom: 0;
-  }
-}
-
-@keyframes fadeBuy {
-  0% {
-    opacity: 0;
-    bottom: -25px;
-  }
-
-  100% {
-    opacity: 1;
-    bottom: 0;
-  }
 }
